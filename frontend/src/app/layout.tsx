@@ -5,7 +5,7 @@ import Providers from "./providers";
 
 export const metadata: Metadata = {
     title: "Lucky Chain Lottery",
-    description: "Decentralized lottery experience powered by Kaia Kairos.",
+    description: "Decentralized lottery experience powered by Polygon.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

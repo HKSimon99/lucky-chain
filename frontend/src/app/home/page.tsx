@@ -113,6 +113,17 @@ export default function HomePage() {
           </div>
         </header>
 
+        {!activeRound && (
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 text-center text-white/80">
+            <p className="mb-2 font-semibold text-white">
+              활성 라운드 정보를 불러올 수 없습니다.
+            </p>
+            <p className="text-sm text-white/60">
+              지갑 연결 상태와 계약 구성을 확인한 뒤 다시 시도해주세요.
+            </p>
+          </div>
+        )}
+
         {activeRound && (
           <div className="space-y-6">
             {/* 총 상금 카드 */}

@@ -105,9 +105,15 @@ export type LottoV2ContractContextValue = {
     autoProgressRound: () => Promise<TransactionReceipt | null>;
 };
 
-const DEFAULT_CHAIN_ID = 1001;
-const DEFAULT_RPC_URL = 'https://public-en-kairos.node.kaia.io';
-const CHAIN_NAME = 'Kaia Kairos Testnet';
+const DEFAULT_CHAIN_ID = 137;
+const DEFAULT_RPC_URL = 'https://polygon-rpc.com';
+const CHAIN_NAME = 'Polygon PoS';
+const BLOCK_EXPLORER_URL = 'https://polygonscan.com';
+const NATIVE_CURRENCY = Object.freeze({
+    name: 'MATIC',
+    symbol: 'MATIC',
+    decimals: 18,
+});
 const TICKET_PRICE_USD = '1.00';
 
 const {
@@ -258,6 +264,8 @@ function useLottoV2Contract(): LottoV2ContractContextValue {
                         chainId: expectedChainHex,
                         chainName: CHAIN_NAME,
                         rpcUrls: [getExpectedRpcUrl()],
+                        nativeCurrency: NATIVE_CURRENCY,
+                        blockExplorerUrls: [BLOCK_EXPLORER_URL],
                     }],
                 });
             } else {

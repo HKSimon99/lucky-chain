@@ -12,7 +12,7 @@ export default function BottomNav({ isAdmin = false }: BottomNavProps) {
   const pathname = usePathname();
 
   const navItems = [
-    { href: "/", icon: Home, label: "홈" },
+    { href: "/home", icon: Home, label: "홈" },
     { href: "/buy", icon: ShoppingCart, label: "구매" },
     { href: "/results", icon: Trophy, label: "결과" },
     { href: "/profile", icon: User, label: "프로필" },
@@ -28,13 +28,14 @@ export default function BottomNav({ isAdmin = false }: BottomNavProps) {
         <div className="flex justify-around items-center h-16">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = pathname === item.href;
+            const isActive =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
+                className={`flex flex-col items-center justify-center flex-1 h-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-transparent ${
                   isActive
                     ? "text-emerald-400"
                     : "text-white/60 hover:text-white/80"
