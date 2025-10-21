@@ -1,0 +1,181 @@
+{
+    "abi": [
+        {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "currentRoundId",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "usdt",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "usdc",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "roundId", "type": "uint256" }
+        ],
+        "name": "getRoundInfo",
+        "outputs": [
+            {
+            "components": [
+                { "internalType": "uint256", "name": "id", "type": "uint256" },
+                { "internalType": "uint64", "name": "startTime", "type": "uint64" },
+                { "internalType": "uint64", "name": "endTime", "type": "uint64" },
+                { "internalType": "uint8", "name": "phase", "type": "uint8" },
+                { "internalType": "uint256", "name": "grossUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "grossUSDC", "type": "uint256" },
+                { "internalType": "uint256", "name": "carryInUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "carryInUSDC", "type": "uint256" },
+                { "internalType": "uint256", "name": "carryOutUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "carryOutUSDC", "type": "uint256" },
+                { "internalType": "uint256", "name": "ticketCount", "type": "uint256" },
+                { "internalType": "uint8[6]", "name": "winningNumbers", "type": "uint8[6]" },
+                { "internalType": "uint8", "name": "luckyNumber", "type": "uint8" },
+                { "internalType": "uint32", "name": "firstWinners", "type": "uint32" },
+                { "internalType": "uint32", "name": "secondWinners", "type": "uint32" },
+                { "internalType": "uint32", "name": "thirdWinners", "type": "uint32" },
+                { "internalType": "uint256", "name": "pFirstUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "pSecondUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "pThirdUSDT", "type": "uint256" },
+                { "internalType": "uint256", "name": "pFirstUSDC", "type": "uint256" },
+                { "internalType": "uint256", "name": "pSecondUSDC", "type": "uint256" },
+                { "internalType": "uint256", "name": "pThirdUSDC", "type": "uint256" },
+                { "internalType": "bool", "name": "payoutsFinalized", "type": "bool" }
+            ],
+            "internalType": "struct LottoV3.RoundView",
+            "name": "info",
+            "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "ticketId", "type": "uint256" }
+        ],
+        "name": "getTicketInfo",
+        "outputs": [
+            {
+            "components": [
+                { "internalType": "uint256", "name": "ticketId", "type": "uint256" },
+                { "internalType": "uint256", "name": "roundId", "type": "uint256" },
+                { "internalType": "uint64", "name": "purchasedAt", "type": "uint64" },
+                { "internalType": "uint8[6]", "name": "numbers", "type": "uint8[6]" },
+                { "internalType": "uint8", "name": "luckyNumber", "type": "uint8" },
+                { "internalType": "bool", "name": "isUSDT", "type": "bool" },
+                { "internalType": "uint8", "name": "tier", "type": "uint8" },
+                { "internalType": "bool", "name": "claimed", "type": "bool" }
+            ],
+            "internalType": "struct LottoV3.TicketView",
+            "name": "viewData",
+            "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+        ],
+        "name": "tokenURI",
+        "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+        "stateMutability": "view",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "bool", "name": "useUSDT", "type": "bool" },
+            { "internalType": "string", "name": "tokenURI", "type": "string" }
+        ],
+        "name": "buyTicketAuto",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "bool", "name": "useUSDT", "type": "bool" },
+            { "internalType": "uint256", "name": "count", "type": "uint256" },
+            { "internalType": "string[]", "name": "tokenURIs", "type": "string[]" }
+        ],
+        "name": "buyTicketsAuto",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "ticketId", "type": "uint256" }
+        ],
+        "name": "claimPrize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "closeCurrentRound",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint64", "name": "startTime", "type": "uint64" }
+        ],
+        "name": "startNextRound",
+        "outputs": [
+            { "internalType": "uint256", "name": "newRoundId", "type": "uint256" }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "roundId", "type": "uint256" }
+        ],
+        "name": "requestRandomWinningNumbers",
+        "outputs": [
+            { "internalType": "uint256", "name": "requestId", "type": "uint256" }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [
+            { "internalType": "uint256", "name": "roundId", "type": "uint256" }
+        ],
+        "name": "finalizePayouts",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "inputs": [],
+        "name": "autoProgressRound",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+        }
+    ]
+}

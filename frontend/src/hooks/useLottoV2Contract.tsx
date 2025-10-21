@@ -396,7 +396,7 @@ function useLottoV2Contract(): LottoV2ContractContextValue {
     const buyTicket = useCallback(async (useUSDT: boolean, tokenURI: string): Promise<TransactionReceipt | null> => {
         if (!contractWithSigner) throw new Error('지갑이 연결되지 않았습니다');
 
-        const tx = await contractWithSigner.buyTicket(useUSDT, tokenURI);
+        const tx = await contractWithSigner.buyTicketAuto(useUSDT, tokenURI);
         setPendingTransaction(tx.hash);
         const receipt = await tx.wait();
         setPendingTransaction(null);
@@ -406,7 +406,7 @@ function useLottoV2Contract(): LottoV2ContractContextValue {
     const buyTickets = useCallback(async (useUSDT: boolean, count: number, tokenURIs: string[]): Promise<TransactionReceipt | null> => {
         if (!contractWithSigner) throw new Error('지갑이 연결되지 않았습니다');
 
-        const tx = await contractWithSigner.buyTickets(useUSDT, count, tokenURIs);
+        const tx = await contractWithSigner.buyTicketsAuto(useUSDT, count, tokenURIs);
         setPendingTransaction(tx.hash);
         const receipt = await tx.wait();
         setPendingTransaction(null);
