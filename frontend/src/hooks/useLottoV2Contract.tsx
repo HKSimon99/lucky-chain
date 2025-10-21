@@ -110,9 +110,15 @@ const DEFAULT_RPC_URL = 'https://public-en-kairos.node.kaia.io';
 const CHAIN_NAME = 'Kaia Kairos Testnet';
 const TICKET_PRICE_USD = '1.00';
 
-const getExpectedChainId = () => contractConfig.chainId ?? DEFAULT_CHAIN_ID;
-const getExpectedRpcUrl = () => contractConfig.rpcUrl ?? DEFAULT_RPC_URL;
-const CONTRACT_ADDRESS = contractConfig.address;
+const {
+    address: configuredContractAddress,
+    chainId: configuredChainId,
+    rpcUrl: configuredRpcUrl,
+} = contractConfig ?? {};
+
+const getExpectedChainId = () => configuredChainId ?? DEFAULT_CHAIN_ID;
+const getExpectedRpcUrl = () => configuredRpcUrl ?? DEFAULT_RPC_URL;
+const CONTRACT_ADDRESS = configuredContractAddress ?? null;
 
 const allowedAdminAddresses = (staticAllowedAdmins ?? [])
     .map((value) => (typeof value === 'string' ? value.toLowerCase() : ''))

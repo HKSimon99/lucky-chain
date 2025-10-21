@@ -6,7 +6,8 @@ export type ContractConfig = {
     rpcUrl?: string;
 };
 
-export const contractConfig: ContractConfig = contractConfigRuntime;
+export const contractConfig: ContractConfig =
+    (contractConfigRuntime as ContractConfig | undefined) ?? {};
 export const { address, chainId, rpcUrl } = contractConfig;
 
 export default contractConfig;

@@ -39,10 +39,12 @@ const rpcUrlCandidates = [
     normalizeString(process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL),
 ];
 
-const contractConfig = Object.freeze({
+export const contractConfig = Object.freeze({
     address: firstDefined(...addressCandidates),
     chainId: firstDefined(...chainIdCandidates),
     rpcUrl: firstDefined(...rpcUrlCandidates),
 });
+
+export const { address, chainId, rpcUrl } = contractConfig;
 
 export default contractConfig;
